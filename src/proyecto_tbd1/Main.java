@@ -5,6 +5,8 @@
  */
 package proyecto_tbd1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tiffa
@@ -16,6 +18,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -31,13 +34,22 @@ public class Main extends javax.swing.JFrame {
         serv_cliente = new javax.swing.JDialog();
         personal_llamadas = new javax.swing.JDialog();
         empleados_almacen = new javax.swing.JDialog();
+        persona = new javax.swing.JDialog();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txt_newUser = new javax.swing.JTextField();
+        txt_newPas = new javax.swing.JTextField();
+        cmb_newTipo = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        nuevo = new javax.swing.JMenu();
+        nuevaPersona = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         javax.swing.GroupLayout adminLayout = new javax.swing.GroupLayout(admin.getContentPane());
@@ -84,6 +96,65 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jLabel3.setText("Password");
+
+        jLabel4.setText("Usuario");
+
+        jLabel5.setText("Tipo de trabajador");
+
+        cmb_newTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Administrador", "Servicio al Cliente", "Centro de Llamadas", "Almacen" }));
+
+        jButton2.setText("Guardar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout personaLayout = new javax.swing.GroupLayout(persona.getContentPane());
+        persona.getContentPane().setLayout(personaLayout);
+        personaLayout.setHorizontalGroup(
+            personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personaLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(personaLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_newPas, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(personaLayout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(34, 34, 34)
+                            .addComponent(txt_newUser, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(personaLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmb_newTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+        personaLayout.setVerticalGroup(
+            personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personaLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_newUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txt_newPas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(cmb_newTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -99,10 +170,19 @@ public class Main extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton1.setText("Ingresar");
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        nuevo.setText("Nuevo");
 
-        jMenu2.setText("Edit");
+        nuevaPersona.setText("Nueva persona");
+        nuevaPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevaPersonaActionPerformed(evt);
+            }
+        });
+        nuevo.add(nuevaPersona);
+
+        jMenuBar1.add(nuevo);
+
+        jMenu2.setText("Elementos");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -111,8 +191,8 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(213, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(475, 475, 475)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -121,17 +201,15 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(71, 71, 71)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(174, 174, 174))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(354, 354, 354)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(494, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(181, 181, 181)
+                .addGap(241, 241, 241)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1))
@@ -139,13 +217,56 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2)
                     .addComponent(jLabel2))
-                .addGap(115, 115, 115)
+                .addGap(107, 107, 107)
                 .addComponent(jButton1)
-                .addGap(130, 130, 130))
+                .addGap(359, 359, 359))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nuevaPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaPersonaActionPerformed
+        // TODO add your handling code here:
+        persona.setModal(true);
+        persona.pack();
+        persona.setLocationRelativeTo(this);
+        persona.setVisible(true);
+    }//GEN-LAST:event_nuevaPersonaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Persona persona = null;
+        String user = txt_newUser.getText();
+        String pass = txt_newPas.getText();
+        String tipo ="";
+        String selec = "";
+        
+        selec = cmb_newTipo.getSelectedItem().toString();
+        if (selec.equals("Administrador")) {
+            tipo = "Administrador";
+        }
+        else if (selec.equals("Servicio al Cliente")) {
+            tipo = "Servicio al Cliente";
+        }
+        else if (selec.equals("Centro de Llamadas")) {
+            tipo = "Centro de Llamadas";
+        }
+        else if (selec.equals("Almacen")) {
+            tipo = "Almacen";
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Seleccione alguna de las opciones dadas", "ERROR EN TIPO", JOptionPane.WARNING_MESSAGE);
+            
+        }
+        persona = new Persona (user,pass,tipo);
+        Archivo arch = new Archivo();
+        arch.escribir(persona);
+        txt_newPas.setText("");
+        txt_newUser.setText("");
+        cmb_newTipo.setSelectedIndex(0);
+        arch.leer();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,16 +305,25 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog admin;
+    private javax.swing.JComboBox<String> cmb_newTipo;
     private javax.swing.JDialog empleados_almacen;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JMenuItem nuevaPersona;
+    private javax.swing.JMenu nuevo;
+    private javax.swing.JDialog persona;
     private javax.swing.JDialog personal_llamadas;
     private javax.swing.JDialog serv_cliente;
+    private javax.swing.JTextField txt_newPas;
+    private javax.swing.JTextField txt_newUser;
     // End of variables declaration//GEN-END:variables
 }
