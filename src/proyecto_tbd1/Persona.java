@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package proyecto_tbd1;
-
+import java.io.Serializable;
 /**
  *
  * @author tiffa
  */
-public class Persona {
+public class Persona implements Serializable{
     private String usuario;
     private String pass;
     private String tipo;

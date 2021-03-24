@@ -16,39 +16,58 @@ import java.util.ArrayList;
  * @author tiffa
  */
 public class Archivo {
-    private String ruta_archivo = "personas.mrt";
-
-    public void escribir(Persona x)
-    {
-        try {
-            //Objeto a guardar en archivo *.DAT
-            Persona persona = null;
-            persona = new Persona(x.getUsuario(), x.getPass(), x.getTipo());
-            //Se crea un Stream para guardar archivo
-            ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream( this.ruta_archivo ));
-            //Se escribe el objeto en archivo
-            file.writeObject(persona);
-            //se cierra archivo
-            file.close();
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
+    ArrayList <Persona> personas = new ArrayList();
+    ArrayList <Persona> temp = new ArrayList();
+    String archivo = "personas.mrt";
+    public Archivo() {
     }
 
-    public void leer()
-    {
-        try {
-            //Stream para leer archivo
-            ObjectInputStream file = new ObjectInputStream(new FileInputStream( this.ruta_archivo ));
-            //Se lee el objeto de archivo y este debe convertirse al tipo de clase que corresponde
-            Persona persona = (Persona) file.readObject();
-            ArrayList <Persona> personas  = new ArrayList<Persona>();
-            personas.add(persona);
+    public ArrayList<Persona> getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(ArrayList<Persona> personas) {
+        this.personas = personas;
+    }
+    
+    
+    
+    public void Escribir(){
+        try
+            {
+                 
+            // Se abre el fichero donde se hará la copia
+            FileOutputStream fileOutput = new FileOutputStream( archivo );
+            ObjectOutputStream file = new ObjectOutputStream(fileOutput);
+             
+            //Se escribe el objeto en archivo
+            for(int cont = 0; cont < 4; cont++){
+                file.writeObject(personas.get(cont));
+            }
             //se cierra archivo
             file.close();
+            System.out.println("Se guardó el arreglo con exito...");
+        } catch (IOException ex) {
+            System.out.println(ex);
+            System.exit(0);
+        }
+    }
+    
+    public void Leer(){
+             //Leemos los datos del archivo y los cargamos en el arreglo
+        try {
+            //Stream para leer archivo
+            FileInputStream fileInput = new FileInputStream(archivo);
+            ObjectInputStream file = new ObjectInputStream(fileInput);
             
-            for (int i = 0; i < personas.size(); i++) {
-                personas.get(i).toString();
+           for(int cont = 0; cont < 4; cont++){
+                temp.add((Persona) file.readObject());
+           }
+            //se cierra archivo
+            file.close();    
+            setPersonas(temp);
+            for (int i = 0; i < 4; i++) {
+                System.out.println("Pos "+i+": "+personas.get(i).toString());
             }
         } catch (ClassNotFoundException ex) {
              System.out.println(ex);
@@ -56,5 +75,4 @@ public class Archivo {
              System.out.println(ex);
        }
     }
-
 }

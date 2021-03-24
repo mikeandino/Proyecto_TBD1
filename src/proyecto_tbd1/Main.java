@@ -5,7 +5,13 @@
  */
 package proyecto_tbd1;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +25,10 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        mi_admin.setEnabled(false);
+        mi_almacen.setEnabled(false);
+        mi_centro.setEnabled(false);
+        mi_servicio.setEnabled(false);
     }
 
     /**
@@ -31,7 +41,21 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         admin = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txta_result = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txta_coding = new javax.swing.JTextArea();
+        btn_correring = new javax.swing.JButton();
+        btn_limp = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         serv_cliente = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        txt_busqueda = new javax.swing.JTextField();
+        btn_buscar = new javax.swing.JButton();
+        btn_limpiarbuscar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbl_resultadobusqueda = new javax.swing.JTable();
         personal_llamadas = new javax.swing.JDialog();
         empleados_almacen = new javax.swing.JDialog();
         persona = new javax.swing.JDialog();
@@ -42,36 +66,161 @@ public class Main extends javax.swing.JFrame {
         txt_newPas = new javax.swing.JTextField();
         cmb_newTipo = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txt_User = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        txt_pass = new javax.swing.JPasswordField();
         jMenuBar1 = new javax.swing.JMenuBar();
         nuevo = new javax.swing.JMenu();
         nuevaPersona = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        mi_admin = new javax.swing.JMenuItem();
+        mi_servicio = new javax.swing.JMenuItem();
+        mi_centro = new javax.swing.JMenuItem();
+        mi_almacen = new javax.swing.JMenuItem();
+
+        txta_result.setColumns(20);
+        txta_result.setRows(5);
+        txta_result.setEnabled(false);
+        jScrollPane1.setViewportView(txta_result);
+
+        txta_coding.setColumns(20);
+        txta_coding.setRows(5);
+        jScrollPane2.setViewportView(txta_coding);
+
+        btn_correring.setText("Correr");
+        btn_correring.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_correringActionPerformed(evt);
+            }
+        });
+
+        btn_limp.setText("Limpiar");
+        btn_limp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("Codigo");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Resultado");
 
         javax.swing.GroupLayout adminLayout = new javax.swing.GroupLayout(admin.getContentPane());
         admin.getContentPane().setLayout(adminLayout);
         adminLayout.setHorizontalGroup(
             adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminLayout.createSequentialGroup()
+                .addGroup(adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(adminLayout.createSequentialGroup()
+                        .addContainerGap(378, Short.MAX_VALUE)
+                        .addGroup(adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_correring, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_limp, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36))
+                    .addGroup(adminLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61))
+            .addGroup(adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(adminLayout.createSequentialGroup()
+                    .addGap(31, 31, 31)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(558, Short.MAX_VALUE)))
         );
         adminLayout.setVerticalGroup(
             adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(adminLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addGap(55, 55, 55)
+                .addComponent(btn_correring, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(btn_limp, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminLayout.createSequentialGroup()
+                    .addContainerGap(36, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(14, 14, 14)))
         );
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("Busqueda");
+
+        btn_buscar.setText("Buscar");
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
+
+        btn_limpiarbuscar.setText("Limpiar");
+        btn_limpiarbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarbuscarActionPerformed(evt);
+            }
+        });
+
+        tbl_resultadobusqueda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_resultadobusqueda.setEnabled(false);
+        jScrollPane3.setViewportView(tbl_resultadobusqueda);
 
         javax.swing.GroupLayout serv_clienteLayout = new javax.swing.GroupLayout(serv_cliente.getContentPane());
         serv_cliente.getContentPane().setLayout(serv_clienteLayout);
         serv_clienteLayout.setHorizontalGroup(
             serv_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(serv_clienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(serv_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(serv_clienteLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(btn_limpiarbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 12, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         serv_clienteLayout.setVerticalGroup(
             serv_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(serv_clienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(serv_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_buscar)
+                    .addComponent(btn_limpiarbuscar))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout personal_llamadasLayout = new javax.swing.GroupLayout(personal_llamadas.getContentPane());
@@ -111,6 +260,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Salir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout personaLayout = new javax.swing.GroupLayout(persona.getContentPane());
         persona.getContentPane().setLayout(personaLayout);
         personaLayout.setHorizontalGroup(
@@ -118,6 +274,10 @@ public class Main extends javax.swing.JFrame {
             .addGroup(personaLayout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personaLayout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(personaLayout.createSequentialGroup()
                             .addComponent(jLabel3)
@@ -130,9 +290,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(personaLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmb_newTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(cmb_newTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         personaLayout.setVerticalGroup(
@@ -150,9 +308,11 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(cmb_newTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(personaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -163,12 +323,15 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Password");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txt_User.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton1.setText("Ingresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         nuevo.setText("Nuevo");
 
@@ -183,6 +346,39 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(nuevo);
 
         jMenu2.setText("Elementos");
+
+        mi_admin.setText("Administrador");
+        mi_admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_adminActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mi_admin);
+
+        mi_servicio.setText("Servicio al Cliente");
+        mi_servicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_servicioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mi_servicio);
+
+        mi_centro.setText("Centro de Llamadas");
+        mi_centro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_centroActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mi_centro);
+
+        mi_almacen.setText("Empleado de Almacen");
+        mi_almacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_almacenActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mi_almacen);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -195,15 +391,15 @@ public class Main extends javax.swing.JFrame {
                 .addGap(475, 475, 475)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(95, 95, 95)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(95, 95, 95)
+                        .addComponent(txt_User, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(494, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -212,12 +408,12 @@ public class Main extends javax.swing.JFrame {
                 .addGap(241, 241, 241)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1))
-                .addGap(96, 96, 96)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2)
-                    .addComponent(jLabel2))
-                .addGap(107, 107, 107)
+                    .addComponent(txt_User))
+                .addGap(92, 92, 92)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(110, 110, 110)
                 .addComponent(jButton1)
                 .addGap(359, 359, 359))
         );
@@ -259,14 +455,133 @@ public class Main extends javax.swing.JFrame {
             
         }
         persona = new Persona (user,pass,tipo);
-        Archivo arch = new Archivo();
-        arch.escribir(persona);
+        personas.add(persona);
         txt_newPas.setText("");
         txt_newUser.setText("");
         cmb_newTipo.setSelectedIndex(0);
-        arch.leer();
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        archivo.setPersonas(personas);
+        archivo.Escribir();
+        archivo.setPersonas(personas);
+        archivo.Leer();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void mi_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_adminActionPerformed
+        // TODO add your handling code here:
+        admin.setModal(true);
+        admin.pack();
+        admin.setLocationRelativeTo(this);
+        admin.setVisible(true);
+    }//GEN-LAST:event_mi_adminActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String User = txt_User.getText();
+        String Pass = txt_pass.getText();
+        txt_User.setText("");
+        txt_pass.setText("");
+        ArrayList <Persona> lista = new ArrayList();
+        archivo.Leer();
+        lista = archivo.getPersonas();
+        for (int i = 0; i < lista.size(); i++) {
+            if ((lista.get(i).getUsuario().equals(User)) && (lista.get(i).getPass().equals(Pass))) {
+                if (lista.get(i).getTipo().equals("Administrador")) {
+                    mi_admin.setEnabled(true);
+                    mi_almacen.setEnabled(false);
+                    mi_centro.setEnabled(false);
+                    mi_servicio.setEnabled(false);
+                }
+                else if (lista.get(i).getTipo().equals("Servicio al Cliente")) {
+                    mi_servicio.setEnabled(true);
+                    mi_admin.setEnabled(false);
+                    mi_almacen.setEnabled(false);
+                    mi_centro.setEnabled(false);
+                }
+                else if (lista.get(i).getTipo().equals("Centro de Llamadas")) {
+                    mi_centro.setEnabled(true);
+                    mi_admin.setEnabled(false);
+                    mi_almacen.setEnabled(false);
+                    mi_servicio.setEnabled(false);
+                }
+                else if (lista.get(i).getTipo().equals("Almacen")) {
+                    mi_almacen.setEnabled(true);
+                    mi_admin.setEnabled(false);
+                    mi_centro.setEnabled(false);
+                    mi_servicio.setEnabled(false);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Usuario o Password no existe o mal escrito", "ERROR EN INICIO", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void mi_servicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_servicioActionPerformed
+        // TODO add your handling code here:
+        serv_cliente.setModal(true);
+        serv_cliente.pack();
+        serv_cliente.setLocationRelativeTo(this);
+        serv_cliente.setVisible(true);
+    }//GEN-LAST:event_mi_servicioActionPerformed
+
+    private void mi_centroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_centroActionPerformed
+        // TODO add your handling code here:
+        personal_llamadas.setModal(true);
+        personal_llamadas.pack();
+        personal_llamadas.setLocationRelativeTo(this);
+        personal_llamadas.setVisible(true);
+    }//GEN-LAST:event_mi_centroActionPerformed
+
+    private void mi_almacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_almacenActionPerformed
+        // TODO add your handling code here:
+        empleados_almacen.setModal(true);
+        empleados_almacen.pack();
+        empleados_almacen.setLocationRelativeTo(this);
+        empleados_almacen.setVisible(true);
+    }//GEN-LAST:event_mi_almacenActionPerformed
+
+    private void btn_limpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpActionPerformed
+        // TODO add your handling code here
+        txta_coding.setText("");
+        txta_result.setText("");
+    }//GEN-LAST:event_btn_limpActionPerformed
+
+    private void btn_correringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_correringActionPerformed
+        // TODO add your handling code here:
+        String codigo = txta_coding.getText();
+        if (codigo.equals("") || codigo.equals(" ")) {
+            JOptionPane.showMessageDialog(null, "Coonsulta no escrita", "ERROR EN CODIGO", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            
+        }
+    }//GEN-LAST:event_btn_correringActionPerformed
+
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        // TODO add your handling code here:
+        String busqueda = txt_busqueda.getText();
+        if (busqueda.equals("") || busqueda.equals(" ")) {
+            JOptionPane.showMessageDialog(null, "Busqueda no escrita", "ERROR EN BUSQUEDA", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            
+        }
+    }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void btn_limpiarbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarbuscarActionPerformed
+        // TODO add your handling code here:
+        txt_busqueda.setText("");
+        DefaultTableModel tb = (DefaultTableModel) tbl_resultadobusqueda.getModel();
+        int a = tbl_resultadobusqueda.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {          
+        tb.removeRow(tb.getRowCount()-1);
+        }
+    }//GEN-LAST:event_btn_limpiarbuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,29 +616,60 @@ public class Main extends javax.swing.JFrame {
                 new Main().setVisible(true);
             }
         });
+        
+    }
+    
+    public void Crear (String ruta){
+        try {
+            File archivo = new File (ruta);
+        } catch (Exception e) {
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog admin;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_correring;
+    private javax.swing.JButton btn_limp;
+    private javax.swing.JButton btn_limpiarbuscar;
     private javax.swing.JComboBox<String> cmb_newTipo;
     private javax.swing.JDialog empleados_almacen;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JMenuItem mi_admin;
+    private javax.swing.JMenuItem mi_almacen;
+    private javax.swing.JMenuItem mi_centro;
+    private javax.swing.JMenuItem mi_servicio;
     private javax.swing.JMenuItem nuevaPersona;
     private javax.swing.JMenu nuevo;
     private javax.swing.JDialog persona;
     private javax.swing.JDialog personal_llamadas;
     private javax.swing.JDialog serv_cliente;
+    private javax.swing.JTable tbl_resultadobusqueda;
+    private javax.swing.JTextField txt_User;
+    private javax.swing.JTextField txt_busqueda;
     private javax.swing.JTextField txt_newPas;
     private javax.swing.JTextField txt_newUser;
+    private javax.swing.JPasswordField txt_pass;
+    private javax.swing.JTextArea txta_coding;
+    private javax.swing.JTextArea txta_result;
     // End of variables declaration//GEN-END:variables
+
+Archivo archivo = new Archivo();
+ArrayList <Persona> personas = new ArrayList();
+
 }
