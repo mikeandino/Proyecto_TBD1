@@ -37,10 +37,6 @@ public class Main extends javax.swing.JFrame {
             con = DriverManager.getConnection("jdbc:oracle:thin:@proyecto.cd3p6dciayjk.us-east-1.rds.amazonaws.com:1521:DATABASE", "admin", "password12");
             // Create a statement for SQL query
             stmt = con.createStatement();
-            //Vaciar bitacoras para esta session.
-            //stmt.executeQuery("delete * from bitacoras");
-                        // Close the connection object  
-            
             System.out.println("Funciono la connection con la bd :)");
         } catch (Exception e) {
             System.out.println(e);
@@ -1036,6 +1032,7 @@ public class Main extends javax.swing.JFrame {
             }
             Bitacoras bitacora = new Bitacoras();
             bitacora.logger(logs, nombre + "," + tiempo);
+            //stmt.executeQuery("Truncate table DISPATCHES");
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
