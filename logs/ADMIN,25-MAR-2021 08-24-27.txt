@@ -1,0 +1,59 @@
+Se han insertado los valores (3, Emilio) a la tabla CLIENTE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (4, Maria) a la tabla CLIENTE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (5, Jose) a la tabla CLIENTE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (6, Patricia) a la tabla CLIENTE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (7, Alicia) a la tabla CLIENTE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (3, Microsoft, Xbox, Series X, 499, Consola, Consola de video juegos de ultima generacion) a la tabla PRODUCTO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (4, Sony, PlayStation, 5, 499, Consola, Consola de video juegos de ultima generacion) a la tabla PRODUCTO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (1, Tegucigalpa, Lomas del Guijarro) a la tabla TIENDA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (2, San Pedro Sula, Col. Los Andes) a la tabla TIENDA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (3, La Ceiba, Col. El Sauce) a la tabla TIENDA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (4, Choluteca, Col. Julio Midence) a la tabla TIENDA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (5, Comayagua, Col. Piedras Bonitas) a la tabla TIENDA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (6, Candy, Microondas, CMXG20DS, 104, Electrodomestico, Microondas para poder calentar todo tipo de comidas) a la tabla PRODUCTO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (7, Taurus, Sandwichera, 968419000, 50, Electrodomestico, Sandwichera para poder hacer un sandwich tostado con mejor sabor) a la tabla PRODUCTO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (8, Microsoft, Xbox, Series X, 499, Consola, Consola de video juegos de ultima generacion) a la tabla PRODUCTO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (9, Sony, PlayStation, 5, 499, Consola, Consola de video juegos de ultima generacion) a la tabla PRODUCTO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (10, Apple, iPhone, 12, 799, Telefono, Smartphone con una gran capacidad de procesamiento, almacenamiento y gran camara) a la tabla PRODUCTO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (Electrodomesticos) a la tabla CATEGORIA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (Consolas) a la tabla CATEGORIA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (Telefonos) a la tabla CATEGORIA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (Computadoras) a la tabla CATEGORIA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (Hogar) a la tabla CATEGORIA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han borrado la fila con los valores (8, Microsoft, Xbox, Series X, 499, Consola, Consola de video juegos de ultima generacion) de la tabla PRODUCTO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han borrado la fila con los valores (9, Sony, PlayStation, 5, 499, Consola, Consola de video juegos de ultima generacion) de la tabla PRODUCTO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han modificado los valores (6, Candy, Microondas, CMXG20DS, 104, Electrodomestico, Microondas para poder calentar todo tipo de comidas) por los valores (6, Candy, Microonda, CMXG20DS, 104, Electrodomestico, Microondas para poder calentar todo tipo de comidas) en la tabla PRODUCTO en 25-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (6, Electrodomesticos) a la tabla PERTENECE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (7, Electrodomesticos) a la tabla PERTENECE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (3, Consolas) a la tabla PERTENECE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (4, Consolas) a la tabla PERTENECE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (10, Telefonos) a la tabla PERTENECE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (3) a la tabla CLIENTE_FRECUENTE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (5) a la tabla CLIENTE_FRECUENTE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (7) a la tabla CLIENTE_FRECUENTE en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (4) a la tabla CLIENTE_TIENDA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (6) a la tabla CLIENTE_TIENDA en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (4, 1000, 3) a la tabla CONTRATO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (5, 1000, 5) a la tabla CONTRATO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (6, 1000, 7) a la tabla CONTRATO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (6, Tegucigalpa) a la tabla ALMACEN en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (7, San Pedro Sula) a la tabla ALMACEN en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (8, La Ceiba) a la tabla ALMACEN en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (9, Choluteca) a la tabla ALMACEN en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (10, Comayagua) a la tabla ALMACEN en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (3, emo, 1234, calle 1, casa#11, 4556816890978876, Emilio, 401, Enero, 2022) a la tabla CLIENTE_VIRTUAL en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (4, Mary1, 2345, calle 34, casa#111, 4556816890978876, Maria, 221, Mayo, 2022) a la tabla CLIENTE_VIRTUAL en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (5, Jose34, 3456, calle 45, casa#23, 4556816890978876, Jose, 236, Agosto, 2023) a la tabla CLIENTE_VIRTUAL en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (6, Paty14, 4567, calle 23, casa#345, 4556816890978876, Patricia, 682, Febrero, 2023) a la tabla CLIENTE_VIRTUAL en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (7, Ali, 5678, calle 12, casa#1023, 4556816890978876, Alicia, 245, Noviembre, 2023) a la tabla CLIENTE_VIRTUAL en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (4, 3, 1) a la tabla TIENE_EN_CARRITO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (7, 6, 3) a la tabla TIENE_EN_CARRITO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (350, Tegucigalpa, 6, 6, 6) a la tabla INVENTARIO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (200, San Pedro Sula, 7, 7, 7) a la tabla INVENTARIO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (50, La Ceiba, 3, 8, 8) a la tabla INVENTARIO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (150, Choluteca, 4, 9, 9) a la tabla INVENTARIO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (150, Comayagua, 10, 10, 10) a la tabla INVENTARIO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han borrado la fila con los valores (4, 3, 1) de la tabla TIENE_EN_CARRITO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han borrado la fila con los valores (7, 6, 3) de la tabla TIENE_EN_CARRITO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (4, 3, 1) a la tabla TIENE_EN_CARRITO en 24-MAR-21 por ADMIN con el IP:190.53.236.47
+Se han insertado los valores (7, 6, 3) a la tabla TIENE_EN_CARRITO en 24-MAR-21 por ADMIN con el IP:190.53.236.47

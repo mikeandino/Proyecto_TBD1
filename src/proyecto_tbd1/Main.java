@@ -1017,6 +1017,25 @@ public class Main extends javax.swing.JFrame {
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         try {
             // TODO add your handling code here:
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select USER from dual");
+            String nombre = "";
+            while (rs.next()) {
+                nombre = rs.getString(1);
+            }
+            rs = stmt.executeQuery("select TO_CHAR(SYSTIMESTAMP,'DD-MON-YYYY HH24-MI-SS') from dual");
+            String tiempo = "";
+            while (rs.next()) {
+                tiempo = rs.getString(1);
+            }
+            rs = stmt.executeQuery("select logs from bitacoras");
+            StringBuilder logs = new StringBuilder();
+            while (rs.next()) {
+                logs.append(rs.getString(1));
+                logs.append("\n");
+            }
+            Bitacoras bitacora = new Bitacoras();
+            bitacora.logger(logs, nombre + "," + tiempo);
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
