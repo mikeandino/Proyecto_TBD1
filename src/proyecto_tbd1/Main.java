@@ -37,10 +37,6 @@ public class Main extends javax.swing.JFrame {
             con = DriverManager.getConnection("jdbc:oracle:thin:@proyecto.cd3p6dciayjk.us-east-1.rds.amazonaws.com:1521:DATABASE", "admin", "password12");
             // Create a statement for SQL query
             stmt = con.createStatement();
-            //Vaciar bitacoras para esta session.
-            //stmt.executeQuery("delete * from bitacoras");
-                        // Close the connection object  
-            
             System.out.println("Funciono la connection con la bd :)");
         } catch (Exception e) {
             System.out.println(e);
@@ -1056,6 +1052,26 @@ public class Main extends javax.swing.JFrame {
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         try {
             // TODO add your handling code here:
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select USER from dual");
+            String nombre = "";
+            while (rs.next()) {
+                nombre = rs.getString(1);
+            }
+            rs = stmt.executeQuery("select TO_CHAR(SYSTIMESTAMP,'DD-MON-YYYY HH24-MI-SS') from dual");
+            String tiempo = "";
+            while (rs.next()) {
+                tiempo = rs.getString(1);
+            }
+            rs = stmt.executeQuery("select logs from bitacoras");
+            StringBuilder logs = new StringBuilder();
+            while (rs.next()) {
+                logs.append(rs.getString(1));
+                logs.append("\n");
+            }
+            Bitacoras bitacora = new Bitacoras();
+            bitacora.logger(logs, nombre + "," + tiempo);
+            //stmt.executeQuery("Truncate table DISPATCHES");
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
