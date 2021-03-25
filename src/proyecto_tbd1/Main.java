@@ -72,7 +72,6 @@ public class Main extends javax.swing.JFrame {
         btn_limpiarbuscar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_resultadobusqueda = new javax.swing.JTable();
-        cmb_productos = new javax.swing.JComboBox<>();
         personal_llamadas = new javax.swing.JDialog();
         btn_buscarcliente = new javax.swing.JButton();
         btn_limpiarorden = new javax.swing.JButton();
@@ -122,6 +121,11 @@ public class Main extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         table_orden = new javax.swing.JTable();
         empleados_almacen = new javax.swing.JDialog();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         persona = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -147,6 +151,7 @@ public class Main extends javax.swing.JFrame {
         mi_almacen = new javax.swing.JMenuItem();
 
         txta_result.setColumns(20);
+        txta_result.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
         txta_result.setRows(5);
         txta_result.setEnabled(false);
         jScrollPane1.setViewportView(txta_result);
@@ -255,8 +260,6 @@ public class Main extends javax.swing.JFrame {
         tbl_resultadobusqueda.setEnabled(false);
         jScrollPane3.setViewportView(tbl_resultadobusqueda);
 
-        cmb_productos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Producto" }));
-
         javax.swing.GroupLayout serv_clienteLayout = new javax.swing.GroupLayout(serv_cliente.getContentPane());
         serv_cliente.getContentPane().setLayout(serv_clienteLayout);
         serv_clienteLayout.setHorizontalGroup(
@@ -268,10 +271,8 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(serv_clienteLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
-                        .addComponent(txt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(cmb_productos, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
+                        .addComponent(txt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
                         .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addComponent(btn_limpiarbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,14 +287,18 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(txt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_buscar)
-                    .addComponent(btn_limpiarbuscar)
-                    .addComponent(cmb_productos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_limpiarbuscar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btn_buscarcliente.setText("Buscar");
+        btn_buscarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarclienteActionPerformed(evt);
+            }
+        });
 
         btn_limpiarorden.setText("Limpiar");
 
@@ -622,7 +627,6 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_crearorden, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(personal_llamadasLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addGroup(personal_llamadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Orden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -652,15 +656,50 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel25.setText("No. Orden");
+
+        jButton4.setText("Registrar");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane7.setViewportView(jTable1);
+
         javax.swing.GroupLayout empleados_almacenLayout = new javax.swing.GroupLayout(empleados_almacen.getContentPane());
         empleados_almacen.getContentPane().setLayout(empleados_almacenLayout);
         empleados_almacenLayout.setHorizontalGroup(
             empleados_almacenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1082, Short.MAX_VALUE)
+            .addGroup(empleados_almacenLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(empleados_almacenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(empleados_almacenLayout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(jButton4)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         empleados_almacenLayout.setVerticalGroup(
             empleados_almacenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 769, Short.MAX_VALUE)
+            .addGroup(empleados_almacenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(empleados_almacenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel3.setText("Password");
@@ -1032,6 +1071,28 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_agregarcarritoActionPerformed
 
+    private void btn_buscarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarclienteActionPerformed
+        // TODO add your handling code here:
+        String idbuscar = txt_idcliente.getText();
+        int buscar = Integer.parseInt(idbuscar.trim());
+        PreparedStatement pst;
+        ResultSet resp=null;
+        try {
+            pst = con.prepareStatement("select * from CLIENTE where idCliente=?");
+            pst.setInt(1, buscar);
+            resp = pst.executeQuery();
+            while(resp.next()){
+                txt_nombrecliente.setText(resp.getString("Nombre"));
+                txt_usercliente.setText(resp.getString("nombreUsuario"));
+                txt_nombrecliente.setText(resp.getString("Nombre"));
+                txt_nombrecliente.setText(resp.getString("Nombre"));
+                txt_nombrecliente.setText(resp.getString("Nombre"));
+                txt_nombrecliente.setText(resp.getString("Nombre"));
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btn_buscarclienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1082,7 +1143,21 @@ public class Main extends javax.swing.JFrame {
             ResultSet resp = ejec.executeQuery(query);
             
             while(resp.next()){
-                texto = texto + resp.getString("Nombre");
+                texto = texto + resp.getString("idCliente")+"\n";
+            }
+        } catch (Exception e) {
+        }
+        return texto;
+    }
+    
+    public String buscarquery(String x){
+        String texto = "";
+        try {
+            Statement ejec = con.createStatement();
+            ResultSet resp = ejec.executeQuery("select * from cliente where idCliente="+x);
+            
+            while(resp.next()){
+                texto = texto + resp.getString("idcliente")+"\n";
             }
         } catch (Exception e) {
         }
@@ -1105,11 +1180,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_limpiarorden;
     private javax.swing.JButton btn_salir;
     private javax.swing.JComboBox<String> cmb_newTipo;
-    private javax.swing.JComboBox<String> cmb_productos;
     private javax.swing.JDialog empleados_almacen;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1127,6 +1202,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1144,6 +1220,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JMenuItem mi_admin;
     private javax.swing.JMenuItem mi_almacen;
     private javax.swing.JMenuItem mi_centro;
