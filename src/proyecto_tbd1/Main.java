@@ -5,6 +5,7 @@
  */
 package proyecto_tbd1;
 
+import java.sql.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +30,21 @@ public class Main extends javax.swing.JFrame {
         mi_almacen.setEnabled(false);
         mi_centro.setEnabled(false);
         mi_servicio.setEnabled(false);
+        try{
+            // Load the JDBC Driver
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            // Create a connection
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@proyecto.cd3p6dciayjk.us-east-1.rds.amazonaws.com:1521:DATABASE", "admin", "password12");
+            // Create a statement for SQL query
+            Statement stmt = con.createStatement();
+            //Vaciar bitacoras para esta session.
+            //stmt.executeQuery("delete * from bitacoras");
+                        // Close the connection object  
+            con.close();
+            System.out.println("Funciono la connection con la bd :)");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     /**
@@ -108,6 +124,7 @@ public class Main extends javax.swing.JFrame {
         txt_User = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         txt_pass = new javax.swing.JPasswordField();
+        btn_salir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         nuevo = new javax.swing.JMenu();
         nuevaPersona = new javax.swing.JMenuItem();
@@ -631,6 +648,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        btn_salir.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btn_salir.setText("Salir");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
+
         nuevo.setText("Nuevo");
         nuevo.setEnabled(false);
 
@@ -688,13 +713,15 @@ public class Main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(475, 475, 475)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(95, 95, 95)
@@ -713,7 +740,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(110, 110, 110)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btn_salir))
                 .addGap(359, 359, 359))
         );
 
@@ -882,6 +911,11 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_limpiarbuscarActionPerformed
 
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btn_salirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -937,6 +971,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_limp;
     private javax.swing.JButton btn_limpiarbuscar;
     private javax.swing.JButton btn_limpiarorden;
+    private javax.swing.JButton btn_salir;
     private javax.swing.JComboBox<String> cmb_newTipo;
     private javax.swing.JDialog empleados_almacen;
     private javax.swing.JButton jButton1;
