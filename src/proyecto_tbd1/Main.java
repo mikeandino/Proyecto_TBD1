@@ -34,13 +34,13 @@ public class Main extends javax.swing.JFrame {
             // Load the JDBC Driver
             Class.forName("oracle.jdbc.driver.OracleDriver");
             // Create a connection
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@proyecto.cd3p6dciayjk.us-east-1.rds.amazonaws.com:1521:DATABASE", "admin", "password12");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@proyecto.cd3p6dciayjk.us-east-1.rds.amazonaws.com:1521:DATABASE", "admin", "password12");
             // Create a statement for SQL query
-            Statement stmt = con.createStatement();
+            stmt = con.createStatement();
             //Vaciar bitacoras para esta session.
             //stmt.executeQuery("delete * from bitacoras");
                         // Close the connection object  
-            con.close();
+            
             System.out.println("Funciono la connection con la bd :)");
         } catch (Exception e) {
             System.out.println(e);
@@ -989,7 +989,7 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Coonsulta no escrita", "ERROR EN CODIGO", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            
+            txta_result.setText(selectquery(codigo));
         }
     }//GEN-LAST:event_btn_correringActionPerformed
 
@@ -1015,7 +1015,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_limpiarbuscarActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_btn_salirActionPerformed
 
@@ -1068,6 +1073,20 @@ public class Main extends javax.swing.JFrame {
             File archivo = new File (ruta);
         } catch (Exception e) {
         }
+    }
+    
+    public String selectquery(String query){
+        String texto = "";
+        try {
+            Statement ejec = con.createStatement();
+            ResultSet resp = ejec.executeQuery(query);
+            
+            while(resp.next()){
+                texto = texto + resp.getString("Nombre");
+            }
+        } catch (Exception e) {
+        }
+        return texto;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1164,5 +1183,6 @@ public class Main extends javax.swing.JFrame {
 
 Archivo archivo = new Archivo();
 ArrayList <Persona> personas = new ArrayList();
-
+Connection con;
+Statement stmt;
 }
