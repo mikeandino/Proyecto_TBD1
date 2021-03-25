@@ -5,6 +5,7 @@
  */
 package proyecto_tbd1;
 
+import java.sql.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +30,21 @@ public class Main extends javax.swing.JFrame {
         mi_almacen.setEnabled(false);
         mi_centro.setEnabled(false);
         mi_servicio.setEnabled(false);
+        try{
+            // Load the JDBC Driver
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            // Create a connection
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@proyecto.cd3p6dciayjk.us-east-1.rds.amazonaws.com:1521:DATABASE", "admin", "password12");
+            // Create a statement for SQL query
+            Statement stmt = con.createStatement();
+            //Vaciar bitacoras para esta session.
+            //stmt.executeQuery("delete * from bitacoras");
+                        // Close the connection object  
+            con.close();
+            System.out.println("Funciono la connection con la bd :)");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     /**
